@@ -11,71 +11,15 @@
 ### =======================<br>
 ### 3. Funções e Procedimentos<br>
 ###### No começo do jogo, uma série de variáveis globais e definições são feitas para facilitar o acesso a informações importantes ao longo do código, e também para agilizar futuras modificações. A exemplo: definição da velocidade, o raio e o número mínimo das bolas na partida. Já as entidades do jogo foram declaradas como structs para o melhor arranjo do sistema. São elas as structs: Coordenada (X e Y), Jogador (P1 e P2), Bola, e Canhão (para o lançamento das bolas). Para cada uma delas (menos a de Coordenada), existem três funções: uma para inicializá-las, outra para atualizá-las e outra para desenhá-las.
-● Bola CriaBolaRandom: função que designa um raio, uma cor, e uma velocidade
-aleatórios para todas as bolas que serão criadas a partir dela, além de definir em
-que canto da tela elas irão aparecer e, de acordo com essas coordenadas, delimitar
-para qual lado elas devem ser arremessadas. Por exemplo: as bolas originadas no
-canto superior esquerdo, deverão ser arremessadas para a direita e para baixo, para
-que não saiam da tela.<br><br>
-● void AdicionaBola: procedimento para criar sempre uma bola no vetor de bolas de
-cada canhão, e também contabilizar quantas bolas estão em campo, para que esse
-número não ultrapasse um limite pré-estabelecido.<br><br><br>
-● void MovimentaBola: procedimento para definir a velocidade com que cada bola se
-movimenta;<br><br>
-● void MantemBolaNaTela: procedimento para delimitar as colisões com a quadra. A
-bola deve ricochetear e voltar para o campo quando bater nas paredes laterais, mas
-deve sumir quando passa pelas partes superiores ou inferiores. Exemplo: se a bola
-vinha da direita e bateu na parede da esquerda, seu movimento em X deve ser
-invertido, para que ela volte para a direita.<br><br>
-● void bolaOnouOff: procedimento para verificar se a bola saiu ou não pelos limites
-superiores e inferiores da quadra, permitindo, assim, a contabilização dos pontos.
-Por conta do timer do Allegro, uma série de problemas impossibilitaram uma
-implementação mais simples dessa função. A estratégia abordada foi que: a partir
-de um limite imaginário instaurado poucos pixels antes do fim da quadra, todas as
-bolas que passarem por ele, e suas respectivas velocidades apontarem que elas
-estavam indo na direção de saída, e não de entrada da quadra, serão contabilizadas
-como fora.<br><br>
-● void colisaoJogadorBola: procedimento para verificar a colisão entre jogador e
-bola, e permitir o rebote. Sempre que a bola entra em contato com o jogador, sua
-trajetória será devidamente invertida, e ela é voltada para para a direção do
-oponente. Em relação ao eixo X, sua direção é aleatória, ou seja, usando da função
-randSinal (que só retorna 1 ou -1) ela pode voltar tanto para a esquerda, quanto
-para a direita.<br><br>
-● void recomecaJogo: procedimento para verificar quando um dos jogadores atingiu
-10 pontos, zerando a pontuação de ambos novamente e assinalando o ganho de um
-set e o começo de outro.<br><br>
-● void quemGanhou: caso os jogadores não tenham jogado por um set inteiro (os
-pontos de ambos são menos de 10), quem ganhou é quem obteve mais pontos
-durante esse período. Já quando 1 ou mais partidas foram jogadas, o ganhador é
-aquele que obteve mais vitórias totais.● ALLEGRO_BITMAP *imagem e ALLEGRO_SAMPLE *music: designados,
-respectivamente, para imagem de fundo de tela do jogo (que está acompanhada dos
-arquivos, e foi criada por autoria própria, utilizando a plataforma canva) e música de
-fundo (que pode ser encontrada no link: https://youtu.be/l7SwiFWOQqM).<br>
-● Funcionamento dos canhões: 4 canhões são criados, com suas respectivas
-coordenadas nos cantos das telas. Para que eles funcionem na ordem especificada,
-um contador é adicionado em um loop, de forma que o canhão de ID 0 é o primeiro a
-começar. Esse contador é acrescentado em 1 a cada canhão que passa, e quando
-chega no último é zerado novamente, reiniciando o ciclo. Nesse for, uma série de
-funções são atribuídas a cada bola do vetor de bolas no canhão, mas elas só são
-mesmo criadas posteriormente, usando o tempo % 5 para que isso aconteça de 5
-em 5 segundos.<br><br>
-● Funções de Sprintf e al_draw_text foram usadas para escrever diretamente na tela
-tanto o placar ao vivo, quanto as mensagens finais da partida, que são visualizadas
-após o término do jogo.<br><br>
-● Eventos de tecla foram utilizados para possibilitar a movimentação dos jogadores, e
-também para que as bolas possam apenas ser rebatidas com o pressionar do botão
-de espaço ou de enter.<br><br>
-● Ps: por fim, algumas funções, como “colisaoParedao” (usada anteriormente para
-tentar contar quantas vezes as bolas saíram pelas extremidades, a partir da criação
-de um limite exterior à quadra), e “newRecord” (arquivo que lê e atualiza quando
-novos recordes são alcançados), não funcionaram como o esperado, mas seus
-procedimentos foram deixados no código para possíveis futuras utilizações.<br><br>
-
-
-
-
-
-
-
-
-
+###### ● Bola CriaBolaRandom: função que designa um raio, uma cor, e uma velocidade aleatórios para todas as bolas que serão criadas a partir dela, além de definir em que canto da tela elas irão aparecer e, de acordo com essas coordenadas, delimitar para qual lado elas devem ser arremessadas. Por exemplo: as bolas originadas no canto superior esquerdo, deverão ser arremessadas para a direita e para baixo, para que não saiam da tela.<br><br>
+###### ● void AdicionaBola: procedimento para criar sempre uma bola no vetor de bolas de cada canhão, e também contabilizar quantas bolas estão em campo, para que esse número não ultrapasse um limite pré-estabelecido.<br><br><br>
+###### ● void MovimentaBola: procedimento para definir a velocidade com que cada bola se movimenta;<br><br>
+###### ● void MantemBolaNaTela: procedimento para delimitar as colisões com a quadra. A bola deve ricochetear e voltar para o campo quando bater nas paredes laterais, mas deve sumir quando passa pelas partes superiores ou inferiores. Exemplo: se a bola vinha da direita e bateu na parede da esquerda, seu movimento em X deve ser invertido, para que ela volte para a direita.<br><br>
+###### ● void bolaOnouOff: procedimento para verificar se a bola saiu ou não pelos limites superiores e inferiores da quadra, permitindo, assim, a contabilização dos pontos. Por conta do timer do Allegro, uma série de problemas impossibilitaram uma implementação mais simples dessa função. A estratégia abordada foi que: a partir de um limite imaginário instaurado poucos pixels antes do fim da quadra, todas as bolas que passarem por ele, e suas respectivas velocidades apontarem que elas estavam indo na direção de saída, e não de entrada da quadra, serão contabilizadas como fora.<br><br>
+###### ● void colisaoJogadorBola: procedimento para verificar a colisão entre jogador e bola, e permitir o rebote. Sempre que a bola entra em contato com o jogador, sua trajetória será devidamente invertida, e ela é voltada para para a direção do oponente. Em relação ao eixo X, sua direção é aleatória, ou seja, usando da função randSinal (que só retorna 1 ou -1) ela pode voltar tanto para a esquerda, quanto para a direita.<br><br>
+###### ● void recomecaJogo: procedimento para verificar quando um dos jogadores atingiu 10 pontos, zerando a pontuação de ambos novamente e assinalando o ganho de um set e o começo de outro.<br><br>
+###### ● void quemGanhou: caso os jogadores não tenham jogado por um set inteiro (os pontos de ambos são menos de 10), quem ganhou é quem obteve mais pontos durante esse período. Já quando 1 ou mais partidas foram jogadas, o ganhador é aquele que obteve mais vitórias totais.● ALLEGRO_BITMAP *imagem e ALLEGRO_SAMPLE *music: designados, respectivamente, para imagem de fundo de tela do jogo (que está acompanhada dos arquivos, e foi criada por autoria própria, utilizando a plataforma canva) e música de fundo (que pode ser encontrada no link: https://youtu.be/l7SwiFWOQqM).<br>
+###### ● Funcionamento dos canhões: 4 canhões são criados, com suas respectivas coordenadas nos cantos das telas. Para que eles funcionem na ordem especificada, um contador é adicionado em um loop, de forma que o canhão de ID 0 é o primeiro a começar. Esse contador é acrescentado em 1 a cada canhão que passa, e quando chega no último é zerado novamente, reiniciando o ciclo. Nesse for, uma série de funções são atribuídas a cada bola do vetor de bolas no canhão, mas elas só são mesmo criadas posteriormente, usando o tempo % 5 para que isso aconteça de 5 em 5 segundos.<br><br>
+###### ● Funções de Sprintf e al_draw_text foram usadas para escrever diretamente na tela tanto o placar ao vivo, quanto as mensagens finais da partida, que são visualizadas após o término do jogo.<br><br>
+###### ● Eventos de tecla foram utilizados para possibilitar a movimentação dos jogadores, e também para que as bolas possam apenas ser rebatidas com o pressionar do botão de espaço ou de enter.<br><br>
+###### ● Ps: por fim, algumas funções, como “colisaoParedao” (usada anteriormente para tentar contar quantas vezes as bolas saíram pelas extremidades, a partir da criação de um limite exterior à quadra), e “newRecord” (arquivo que lê e atualiza quando novos recordes são alcançados), não funcionaram como o esperado, mas seus procedimentos foram deixados no código para possíveis futuras utilizações.<br><br>
