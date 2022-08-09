@@ -2,7 +2,7 @@
 ## Jogo de Tênis feito usando a linguagem C e a biblioteca Allegro, para o trabalho da disciplina de PDS1 da UFMG. 
 ## ========================== <br>
 
-<img src="demo.png">
+<img src="[demo.png](https://github.com/raissagd/jogodeTenis/blob/main/demo.PNG)">
 
 ### 1. Introdução <br>
 ###### O Trabalho Prático sugerido para a disciplina de Programação e Desenvolvimento de Software I foi baseado na criação de um jogo utilizando a biblioteca Allegro (www.allegro.cc), que foi apresentado aos estudantes no decorrer do semestre. A proposta inicial do projeto era de que, por intermédio dessa ferramenta, os estudantes pudessem criar seu próprio jogo, que seguisse uma série de funcionalidades e regras. No jogo em questão, dois jogadores se enfrentam em uma partida de tênis com múltiplas bolas, a princípio sem um fim definido. As partidas são contabilizadas em sets de 10 pontos, definindo como ganhador final aquele que venceu o maior número de sets (caso os jogadores não desejam jogar partidas de 10 em 10, o número de pontos marcados até o momento da finalização do jogo definirá quem é o ganhador). As bolas saem de cada um dos 4 cantos da quadra, começando pelo superior direito e seguindo em sentido horário, com um novo lançamento a cada 5 segundos. Cada bola possui um raio, cor e velocidade aleatórios. Para cada vez que um participante falha em defender a bola de passar por sua parte da quadra, é dado um ponto para seu adversário, placar este que é mostrado ao vivo na parte superior da tela. O limite de bolas que saem de cada canto da tela é de 20.
