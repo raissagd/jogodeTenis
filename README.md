@@ -43,7 +43,7 @@ randSinal (que só retorna 1 ou -1) ela pode voltar tanto para a esquerda, quant
 para a direita.<br><br>
 ● void recomecaJogo: procedimento para verificar quando um dos jogadores atingiu
 10 pontos, zerando a pontuação de ambos novamente e assinalando o ganho de um
-set e o começo de outro.<br>
+set e o começo de outro.<br><br>
 ● void quemGanhou: caso os jogadores não tenham jogado por um set inteiro (os
 pontos de ambos são menos de 10), quem ganhou é quem obteve mais pontos
 durante esse período. Já quando 1 ou mais partidas foram jogadas, o ganhador é
@@ -64,12 +64,12 @@ tanto o placar ao vivo, quanto as mensagens finais da partida, que são visualiz
 após o término do jogo.<br><br>
 ● Eventos de tecla foram utilizados para possibilitar a movimentação dos jogadores, e
 também para que as bolas possam apenas ser rebatidas com o pressionar do botão
-de espaço ou de enter.<br><br><br>
+de espaço ou de enter.<br><br>
 ● Ps: por fim, algumas funções, como “colisaoParedao” (usada anteriormente para
 tentar contar quantas vezes as bolas saíram pelas extremidades, a partir da criação
 de um limite exterior à quadra), e “newRecord” (arquivo que lê e atualiza quando
 novos recordes são alcançados), não funcionaram como o esperado, mas seus
-procedimentos foram deixados no código para possíveis futuras utilizações.<br>
+procedimentos foram deixados no código para possíveis futuras utilizações.<br><br>
 
 
 
